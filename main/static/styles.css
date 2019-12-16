@@ -1,0 +1,74 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  background-color: #343434;
+  background-image: url("car.jpg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  padding: 1em 2em;
+  height: 100vh;
+}
+
+div.container{
+  padding: 20px;
+  width: 600px;
+  height: 85vh;
+  background-color: #545454;
+}
+
+table.leaderboard {
+  background-color: #EEEEEE;
+  width: 600px;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.leaderboard td, table.leaderboard th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.leaderboard tbody td {
+  font-size: 18px;
+  color: #343434;
+}
+table.leaderboard tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.leaderboard thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.leaderboard thead th {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.leaderboard thead th:first-child {
+  border-left: none;
+}
+
+table.leaderboard tfoot {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.leaderboard tfoot td {
+  font-size: 18px;
+}
+table.leaderboard tfoot .links {
+  text-align: right;
+}
+table.leaderboard tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}

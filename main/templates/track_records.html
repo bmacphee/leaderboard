@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<div class="container">
+<h1>{{ track.name }} leaderboard</h1>
+
+{% if laptimes %}
+    <table class="leaderboard">
+        <tr>
+            <th>Lap Time</th>
+            <th>Driver</th>
+        </tr>
+    {% for laptime in laptimes %}
+        <tr>
+            <td>{{ laptime.formatted_time }}</td>
+            <td>{{ laptime.driver.name }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No lap times on the leaderboard for this track.</p>
+{% endif %}
+</div>
+</body>
+</html>

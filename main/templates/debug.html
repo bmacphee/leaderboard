@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<h1>debug</h1>
+<h2>{{ pwd }}</h2>
+<h3>{{ db_inf }}</h3>
+
+<p>{{ debug_string|safe }}</p>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<div class="container">
+<h1>Lap records</h1>
+
+{% if tracks %}
+    <table class="leaderboard">
+    {% for track in tracks %}
+        <tr><td><a href="{% url 'track-times' track.id %}">{{ track.name }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No tracks defined.</p>
+{% endif %}
+</div>
+
+</body>
+</html>
