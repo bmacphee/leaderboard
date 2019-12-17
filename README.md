@@ -30,3 +30,8 @@ https://github.com/logandk/serverless-wsgi
 ./deploy_static.sh
 ```
 
+## API Gateway config
+
+Two endpoints are needed, both proxied directly to lambda.
+![APi gateway resources](doc/api_gateway.png)
+
