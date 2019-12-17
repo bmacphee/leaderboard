@@ -33,5 +33,8 @@ https://github.com/logandk/serverless-wsgi
 ## API Gateway config
 
 Two endpoints are needed, both proxied directly to lambda.
-![APi gateway resources](doc/api_gateway_config.png)
+![API gateway config](doc/api_gateway_config.png)
+
+The lambda function only needs 128MB and it's a really good idea to set the concurrency limit to 1.  The other settings are pictured.
+![Lambda config](doc/lambda.png)
 
