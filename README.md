@@ -33,5 +33,5 @@ https://github.com/logandk/serverless-wsgi
 ## API Gateway config
 
 Two endpoints are needed, both proxied directly to lambda.
-![APi gateway resources](doc/api_gateway.png)
+![APi gateway resources](doc/api_gateway_config.png)
 
