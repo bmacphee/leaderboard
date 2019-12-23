@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   padding: 1em 2em;
   height: 100vh;
+  color: #D0E4F5;
 }
 
 div.container{
@@ -24,6 +25,7 @@ table.leaderboard {
 table.leaderboard td, table.leaderboard th {
   border: 1px solid #AAAAAA;
   padding: 3px 2px;
+  color: #343434;
 }
 table.leaderboard tbody td {
   font-size: 18px;
