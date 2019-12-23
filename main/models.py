@@ -4,7 +4,7 @@ from django.db import models
 def laptime_formatted(duration):
     seconds = duration.seconds + (duration.days * 24 * 60 * 60)
     microseconds = duration.microseconds
-    return '{}:{:02d}.{:03d}'.format(seconds // 60, seconds % 60, microseconds // 1000)
+    return '{}:{:02d}.{:02d}'.format(seconds // 60, seconds % 60, microseconds // 10000)
 
 
 class Driver(models.Model):
