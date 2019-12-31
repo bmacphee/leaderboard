@@ -23,11 +23,7 @@ import serverless_wsgi
 
 
 def load_config():
-    """ Read the configuration file created during deployment
-    """
-    root = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(root, ".serverless-wsgi"), "r") as f:
-        return json.loads(f.read())
+    return {"app": "config/wsgi.application"}
 
 
 def import_app(config):
