@@ -15,13 +15,10 @@ class LapTimeField(forms.DurationField):
 
 class LapTimeAdminForm(forms.ModelForm):
     best = LapTimeField()
-    driver = forms.ModelChoiceField(queryset=Driver.objects.all())
-    car = forms.ModelChoiceField(queryset=Car.objects.all())
-    track = forms.ModelChoiceField(queryset=Track.objects.all())
 
     class Meta:
         model = LapTime
-        fields = ('best', 'driver', 'car', 'track')
+        fields = ('best', )
 
 
 class LapTimeListAdminForm(forms.ModelForm):
@@ -48,7 +45,7 @@ class TrackAdmin(admin.ModelAdmin):
 
 
 class LapTimeAdmin(admin.ModelAdmin):
-    fields = ('best', 'driver', 'car', 'track', 'notes')
+    fields = ('best', 'driver', 'car', 'track', 'media', 'notes')
     list_display = ('best', 'friendly')
     list_editable = ('best', )
     list_display_links = ('friendly', )

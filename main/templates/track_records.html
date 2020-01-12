@@ -18,15 +18,23 @@
     <table class="leaderboard">
         <tr>
             <th style="width: 20%">Lap Time</th>
-            <th style="width: 40%">Driver</th>
-            <th style="width: 30%">Car</th>
+            <th style="width: 35%">Driver</th>
+            <th style="width: 35%">Car</th>
+            <th style="width: 5%"></th>
             <th style="width: 5%"></th>
         </tr>
     {% for laptime in laptimes %}
         <tr>
             <td style="width: 20%">{{ laptime.formatted_time }}</td>
-            <td style="width: 40%">{{ laptime.driver.name }}</td>
-            <td style="width: 30%"><a href="?car={{ laptime.car.id }}">{{ laptime.car.name }}</a></td>
+            <td style="width: 35%">{{ laptime.driver.name }}</td>
+            <td style="width: 35%"><a href="?car={{ laptime.car.id }}">{{ laptime.car.name }}</a></td>
+            <td class="t" style="width: 5%">
+                {% if laptime.media|length %}
+                <a target=”_blank” href="{{ laptime.media }}">
+                    <img class="icon" src="{% static 'link.png' %}" />
+                </a>
+                {% endif %}
+            </td>
             <td class="t" style="width: 5%">
                 {% if laptime.notes.strip|length %}
                 <div class="tooltip">

@@ -45,7 +45,8 @@ class LapTime(models.Model):
     track = models.ForeignKey(Track, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     best = models.DurationField()
-    notes = models.CharField(max_length=500, null=True)
+    notes = models.CharField(max_length=500, null=True, blank=True)
+    media = models.URLField(max_length=500, null=True, blank=True)
 
     class Meta:
         unique_together = ('driver', 'track', 'car')
@@ -54,4 +55,4 @@ class LapTime(models.Model):
         return laptime_formatted(self.best)
 
     def __str__(self):
-        return '{}: {} by {}'.format(self.track, self.formatted_time(), self.driver)
+        return '{}, {}: {} by {}'.format(self.track, self.car, self.formatted_time(), self.driver)
