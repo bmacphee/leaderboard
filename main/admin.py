@@ -3,7 +3,7 @@ import datetime
 from django import forms
 from django.contrib import admin
 
-from main.models import Driver, Track, LapTime, laptime_formatted
+from main.models import Driver, Track, LapTime, laptime_formatted, Car
 
 
 class LapTimeField(forms.DurationField):
@@ -13,24 +13,15 @@ class LapTimeField(forms.DurationField):
         return value
 
 
-class CustomDriverChoiceField(forms.ModelChoiceField):
-    def label_from_instance(self, obj):
-        return obj.name
-
-
-class CustomTrackChoiceField(forms.ModelChoiceField):
-    def label_from_instance(self, obj):
-        return obj.name
-
-
 class LapTimeAdminForm(forms.ModelForm):
     best = LapTimeField()
-    driver = CustomDriverChoiceField(queryset=Driver.objects.all())
-    track = CustomTrackChoiceField(queryset=Track.objects.all())
+    driver = forms.ModelChoiceField(queryset=Driver.objects.all())
+    car = forms.ModelChoiceField(queryset=Car.objects.all())
+    track = forms.ModelChoiceField(queryset=Track.objects.all())
 
     class Meta:
         model = LapTime
-        fields = ('best', 'driver', 'track')
+        fields = ('best', 'driver', 'car', 'track')
 
 
 class LapTimeListAdminForm(forms.ModelForm):
@@ -39,6 +30,11 @@ class LapTimeListAdminForm(forms.ModelForm):
     class Meta:
         model = LapTime
         fields = ('best', )
+
+
+class CarAdmin(admin.ModelAdmin):
+    fields = ('name',)
+    list_display = ('name',)
 
 
 class DriverAdmin(admin.ModelAdmin):
@@ -52,7 +48,7 @@ class TrackAdmin(admin.ModelAdmin):
 
 
 class LapTimeAdmin(admin.ModelAdmin):
-    fields = ('best', 'driver', 'track')
+    fields = ('best', 'driver', 'car', 'track', 'notes')
     list_display = ('best', 'friendly')
     list_editable = ('best', )
     list_display_links = ('friendly', )
@@ -70,6 +66,7 @@ class LapTimeAdmin(admin.ModelAdmin):
     form = LapTimeAdminForm
 
 
+admin.site.register(Car, CarAdmin)
 admin.site.register(Driver, DriverAdmin)
 admin.site.register(Track, TrackAdmin)
 admin.site.register(LapTime, LapTimeAdmin)

@@ -54,6 +54,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+PRECISION = os.getenv('PRECISION', 'hundredths')  # ['millis', 'hundredths', 'tenths']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

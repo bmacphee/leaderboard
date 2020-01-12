@@ -9,18 +9,32 @@
 
 <div class="container">
     <div class="content">
-<h1>{{ track.name }} leaderboard</h1>
+
+<div class="breadcrumb">
+  <a href="{% url 'track-index' %}">Tracks</a> :: <a href="{% url 'track-times' track.id %}">{{ track.name }}</a>
+</div>
 
 {% if laptimes %}
     <table class="leaderboard">
         <tr>
-            <th>Lap Time</th>
-            <th>Driver</th>
+            <th style="width: 20%">Lap Time</th>
+            <th style="width: 40%">Driver</th>
+            <th style="width: 30%">Car</th>
+            <th style="width: 5%"></th>
         </tr>
     {% for laptime in laptimes %}
         <tr>
-            <td>{{ laptime.formatted_time }}</td>
-            <td>{{ laptime.driver.name }}</td>
+            <td style="width: 20%">{{ laptime.formatted_time }}</td>
+            <td style="width: 40%">{{ laptime.driver.name }}</td>
+            <td style="width: 30%"><a href="?car={{ laptime.car.id }}">{{ laptime.car.name }}</a></td>
+            <td class="t" style="width: 5%">
+                {% if laptime.notes.strip|length %}
+                <div class="tooltip">
+                    <img class="flag" src="{% static 'blue_flag.png' %}" />
+                    <span class="tooltiptext"> {{ laptime.notes }} </span>
+                </div>
+                {% endif %}
+            </td>
         </tr>
     {% endfor %}
     </table>

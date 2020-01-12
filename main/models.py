@@ -1,10 +1,22 @@
 from django.db import models
 
+from django.conf import settings
+
 
 def laptime_formatted(duration):
+    divide = 10**3
+    fstr = '{:03d}'
+    if settings.PRECISION == 'hundredths':
+        divide *= 1000//100
+        fstr = '{:02d}'
+    elif settings.PRECISION == 'tenths':
+        divide *= 1000//10
+        fstr = '{:01d}'
+
     seconds = duration.seconds + (duration.days * 24 * 60 * 60)
-    microseconds = duration.microseconds
-    return '{}:{:02d}.{:02d}'.format(seconds // 60, seconds % 60, microseconds // 10000)
+    min_sec = '{}:{:02d}'.format(*divmod(seconds, 60))
+    fraction = fstr.format(duration.microseconds // divide)
+    return ".".join((min_sec, fraction))
 
 
 class Driver(models.Model):
@@ -21,13 +33,22 @@ class Track(models.Model):
         return self.name
 
 
+class Car(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
 class LapTime(models.Model):
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     track = models.ForeignKey(Track, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
     best = models.DurationField()
+    notes = models.CharField(max_length=500, null=True)
 
     class Meta:
-        unique_together = ('driver', 'track',)
+        unique_together = ('driver', 'track', 'car')
 
     def formatted_time(self):
         return laptime_formatted(self.best)

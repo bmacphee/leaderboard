@@ -24,9 +24,33 @@ a:active {
   color: #D06465;
 }
 
+div.breadcrumb {
+  margin: 5px;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+div.breadcrumb a:link {
+  color: #ccc;
+}
+div.breadcrumb a:visited {
+  color: #ccc;
+}
+div.breadcrumb a:hover {
+  color: #eee;
+}
+div.breadcrumb a:active {
+  color: #D0E4F5;
+}
+
 h1 {
-  padding: 20px 0;
+  padding: 10px 0 0 0;
   margin: 0px;
+  font-size: 1.7em;
+}
+hr {
+  margin-bottom: 20px;
 }
 
 div.content {
@@ -124,4 +148,40 @@ table.leaderboard tfoot .links a{
   color: #FFFFFF;
   padding: 2px 8px;
   border-radius: 5px;
+}
+
+table.leaderboard td.t {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+img.flag {
+  width: 26px; height: 26px;
+  display: block;
+}
+
+.tooltip {
+  position: relative;
+  display: block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #111;
+  color: #e3e3e3;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 5;
+
+  top: -5px;
+  right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
