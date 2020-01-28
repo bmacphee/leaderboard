@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='laptime',
             name='notes',
-            field=models.CharField(max_length=500, null=True),
+            field=models.CharField(blank=True, max_length=500, null=True),
         ),
     ]

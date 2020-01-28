@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='laptime',
             name='media',
-            field=models.URLField(max_length=500, null=True),
+            field=models.URLField(blank=True, max_length=500, null=True),
         ),
     ]

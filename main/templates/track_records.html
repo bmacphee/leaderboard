@@ -14,6 +14,19 @@
   <a href="{% url 'track-index' %}">Tracks</a> :: <a href="{% url 'track-times' track.id %}">{{ track.name }}</a>
 </div>
 
+{% if sanctioned_cars %}
+    <div class="sanctioned-cars">
+        <div class="section">Sanctioned Cars:</div>
+        <div class="clear"></div>
+        <ul>
+    {% for car in sanctioned_cars %}
+        <li class="sanctioned-car"><a href="?car={{ car.id }}">{{ car.name }}</a></li>
+    {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+
 {% if laptimes %}
     <table class="leaderboard">
         <tr>

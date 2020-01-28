@@ -3,6 +3,8 @@
 import os
 import sys
 
+os.environ['LOCAL_MODE'] = '1'
+
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')

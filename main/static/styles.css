@@ -91,14 +91,14 @@ div.footfloat {
 }
 
 table.leaderboard {
-  background-color: #EEEEEE;
+  background-color: #eee;
   width: 650px;
   text-align: left;
   border-collapse: collapse;
   z-index: 3;
 }
 table.leaderboard td, table.leaderboard th {
-  border: 1px solid #AAAAAA;
+  border: 1px solid #aaa;
   padding: 3px 2px;
   color: #343434;
 }
@@ -119,7 +119,7 @@ table.leaderboard thead {
 table.leaderboard thead th {
   font-size: 20px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #fff;
   border-left: 2px solid #D0E4F5;
 }
 table.leaderboard thead th:first-child {
@@ -129,7 +129,7 @@ table.leaderboard thead th:first-child {
 table.leaderboard tfoot {
   font-size: 18px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #fff;
   background: #D0E4F5;
   background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
   background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
@@ -184,4 +184,31 @@ img.icon {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+div.section {
+  color: #111;
+  float:left;
+  font-weight: bold;
+}
+
+div.clear {
+  clear: both
+}
+
+div.sanctioned-cars ul {
+  padding: 4px 4px 0px 4px;
+  display: inline-block;
+  margin: 0;
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+div.sanctioned-cars {
+  text-align: right;
+  padding: 6px;
+  background-color: #eee;
+  margin-bottom: 5px;
+  float: right;
+  border: 1px solid #999;
 }

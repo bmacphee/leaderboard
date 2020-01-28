@@ -56,3 +56,11 @@ class LapTime(models.Model):
 
     def __str__(self):
         return '{}, {}: {} by {}'.format(self.track, self.car, self.formatted_time(), self.driver)
+
+
+class SanctionedCar(models.Model):
+    # TODO add optional class model
+    # optional class would cause cars in same class to be grouped together for sorting on leaderboard
+    # also would enable filtering by class
+    track = models.ForeignKey(Track, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
