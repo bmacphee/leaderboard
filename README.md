@@ -18,7 +18,6 @@ https://github.com/logandk/serverless-wsgi
 
 # Future
 * support multiple entries per track and driver
-* support choice of car for each entry
 
 
 # Build and deploy
