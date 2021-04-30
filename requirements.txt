@@ -14,6 +14,6 @@ rsa==3.4.2
 s3transfer==0.2.1
 six==1.13.0
 sqlparse==0.3.0
-urllib3==1.25.7
+urllib3==1.25.8
 Werkzeug==0.16.0
 zappa-django-utils==0.4.0
